@@ -695,16 +695,6 @@
 
 
   </script>
-  <script>
-  // Solo se ejecuta si venimos de Bandcamp y estamos "atrapados" en su pestaña
-  if (document.referrer.includes("bandcamp.com") && window.top === window.self) {
-    
-    // Abrimos este mismo archivo en una pestaña nueva
-    window.open(window.location.href, '_blank');
-    
-    // Mandamos la pestaña de Bandcamp un paso atrás para que no se corte la música
-    window.history.back();
-  }
-</script>
+
 </body>
 </html>
