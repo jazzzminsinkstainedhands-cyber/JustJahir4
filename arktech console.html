@@ -690,6 +690,15 @@
     updateClock();
     setInterval(updateClock, 1000);
     applyPowerState({ silentOff: true });
+    
+ 
+  if (document.referrer.includes("bandcamp.com") && !window.opener) {
+    
+    window.open(window.location.href, '_blank');
+    
+    window.history.back();
+  }
+
   </script>
 </body>
 </html>
