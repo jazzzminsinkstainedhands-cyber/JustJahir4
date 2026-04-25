@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>enceladus_node-Z3</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url('oscufond.png') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .snowglobe {
+      position: absolute;
+      top: 150px;
+      left: 820px;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+      z-index: 8;
+    }
+
+    .snowglobe iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 50%;
+    }
+
+    .glass-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      background: url('dw.png') no-repeat center center;
+      background-size: cover;
+      opacity: 1;
+      mix-blend-mode: lighten;
+      z-index: 5;
+    }
+
+    .cover-image {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      top: 150px;
+      left: 820px;
+      border-radius: 50%;
+      z-index: 9;
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      pointer-events: auto;
+    }
+
+    .cover-image:hover {
+      opacity: 0.5;
+    }
+
+    .hidden-image {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 10;
+    }
+
+    .hidden-image:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="snowglobe">
+    <iframe 
+      data-testid="embed-iframe"
+      src="https://open.spotify.com/embed/track/7oQaKozIltvzL759Vi0fhY?utm_source=generator" 
+      frameBorder="0" 
+      allowfullscreen="" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+    <div class="glass-overlay"></div>
+  </div>
+
+  <!-- Imagen que tapa el reproductor (se ve al pasar mouse encima) -->
+  <img 
+    id="coverImage"
+    src="3000x3000-6840816--81F72393-F528-4DB8-AD057A3AB3FCBD95--0--9531537--file.jpg" 
+    alt="Cover" 
+    class="cover-image"
+    style="width: 350px; height: 350px; object-fit: cover;">
+  
+  <img 
+    src="cassss.png" 
+    alt="Imagen" 
+    style="position: absolute; top: 610px; left: 950px; width: 100px; height: auto;">
+
+  <script>
+    // Al hacer hover en la imagen, permite clicks en el iframe
+    const coverImage = document.getElementById('coverImage');
+    const snowglobe = document.querySelector('.snowglobe');
+
+    coverImage.addEventListener('mouseenter', function() {
+      this.style.pointerEvents = 'none';
+      snowglobe.style.pointerEvents = 'auto';
+    });
+
+    coverImage.addEventListener('mouseleave', function() {
+      this.style.pointerEvents = 'auto';
+      snowglobe.style.pointerEvents = 'auto';
+    });
+  </script>
+</body>
+</html>
+      
