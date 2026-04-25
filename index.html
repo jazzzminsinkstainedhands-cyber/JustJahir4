@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=arktech console.html">
     <title>Redirecting...</title>
 </head>
 <body style="background-color: black;">
     <p style="color: green; font-family: monospace;">Loading secure connection...</p>
-   
-</body>
-<script>
 
-  if (document.referrer.includes("bandcamp.com") && !window.opener) {
-    
-    window.open(window.location.href, '_blank');
-   
-    window.history.back();
-  }
-</script>
+    <script>
+     
+      if (document.referrer.includes("bandcamp.com") && window.top === window.self) {
+        
+      
+        window.open("arktech console.html", "_blank");
+        
+        window.history.back();
+        
+      } else {
+       
+        window.location.href = "arktech console.html";
+      }
+    </script>
+</body>
 </html>
